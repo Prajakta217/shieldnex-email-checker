@@ -1,0 +1,103 @@
+<CodeBlock language="html" editable>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Deliverability Checker</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <p class="eyebrow">SHIELDNEX AEROSPACE · SOFTWARE TASK</p>
+            <h1>Email Deliverability Checker</h1>
+            <p class="intro">
+                Check email formatting and available mail-server information
+                without sending email messages.
+            </p>
+        </header>
+
+
+<section class="panel">
+    <label for="emails">Email addresses</label>
+    <textarea id="emails" rows="7"
+        placeholder="alex@example.com&#10;invalid@@mail&#10;team@company.org"></textarea>
+
+
+<p class="hint">
+    Enter one email per line, or separate addresses with commas.
+    Maximum 20 addresses per check.
+</p>
+
+
+<div class="actions">
+    <button id="checkBtn">Check emails</button>
+    <button id="clearBtn" class="secondary">Clear</button>
+</div>
+
+
+<p id="message" role="status" aria-live="polite"></p>
+
+</section>
+
+
+<section id="resultsSection" class="hidden">
+    <div class="summary">
+        <div class="summary-card">
+            <span>Total</span><strong id="totalCount">0</strong>
+        </div>
+        <div class="summary-card">
+            <span>Likely delivered</span>
+            <strong id="deliveredCount">0</strong>
+        </div>
+        <div class="summary-card">
+            <span>Likely bounce</span>
+            <strong id="bounceCount">0</strong>
+        </div>
+        <div class="summary-card">
+            <span>Unknown</span><strong id="unknownCount">0</strong>
+        </div>
+    </div>
+
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Email</th>
+<th>Result</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody id="resultsBody"></tbody>
+</table>
+</div>
+
+</section>
+
+
+<aside class="notice">
+    <h2>Important limitation</h2>
+    <p>
+        A valid format or a responding mail server does not guarantee
+        that an email will be delivered. Many providers hide mailbox
+        status, and some hosting platforms block SMTP connections.
+        The app does not send messages. Unconfirmed results are shown
+        as Unknown.
+    </p>
+</aside>
+
+
+<footer>Built with HTML, CSS, JavaScript and Python Flask.</footer>
+
+</main>
+
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+
+</body>
+</html>
+</CodeBlock>
+
